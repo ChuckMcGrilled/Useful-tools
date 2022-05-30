@@ -12,15 +12,14 @@ from sympy.parsing.sympy_parser import parse_expr
 #in a future excercise sympy will be replaced by a custum parser
 def legendre():
     x = symbols("x")
-    func=input("Function to be evaluated:(Note: exponents are to be entered as '**', and variables in trig functions need to be bracketed.')\n")
-    
     while True:
         try:
+            func=input("Function to be evaluated:(Note: exponents are to be entered as '**', and variables in trig functions need to be bracketed.')\n")
             func_parsed=parse_expr(func)
             break
         except:
             print('Function syntax error')
-            pass #currently certain inputs causes sympy to continuously print out the error message (ie: inputting cos x instead of cos (x)), a solution is needed to make it ask for user input again
+            continue #currently certain inputs causes sympy to continuously print out the error message (ie: inputting cos x instead of cos (x)), a solution is needed to make it ask for user input again
     while True: 
         try:
             a=float(input("What is the lower bound of the domain?\n"))
