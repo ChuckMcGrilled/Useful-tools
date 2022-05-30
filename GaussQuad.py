@@ -4,7 +4,7 @@ Created on Wed Mar 16 16:02:34 2022
 
 @author: rz7954
 
-this is a script to estimate single variable, definite integrals for polynomial and trigonometric functions using gauss-legendre quadrature 
+this is a script to estimate single variable, definite integrals for polynomial and trigonometric functions using Gauss-Legendre quadrature 
 """
 from sympy import * 
 from sympy.parsing.sympy_parser import parse_expr
