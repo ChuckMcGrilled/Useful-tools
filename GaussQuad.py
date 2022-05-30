@@ -2,14 +2,16 @@
 """
 Created on Wed Mar 16 16:02:34 2022
 
-@author: DaCoolestIceCubeInDaEquator
+@author: rz7954
+
+this is a script to estimate single variable, definite integrals for polynomial and trigonometric functions using gauss-legendre quadrature 
 """
 from sympy import * 
 from sympy.parsing.sympy_parser import parse_expr
 #import Parser as ps - the program currently relies on the sympy library to interpret and substitute values into the user input function,
 #in a future excercise sympy will be replaced by a custum parser
 def legendre():
-    x, y = symbols("x y")
+    x = symbols("x")
     
     func=input("Function to be evaluated:(Note: exponents are to be entered as '**', and variables in trig functions need to be bracketed.')\n")
     while True:
