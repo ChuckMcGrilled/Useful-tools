@@ -6,7 +6,7 @@ Created on Wed Mar 16 16:02:34 2022
 """
 from sympy import * 
 from sympy.parsing.sympy_parser import parse_expr
-#import Parser as ps - the program currently relies on sympy library to interpret and substitute values into the user input function,
+#import Parser as ps - the program currently relies on the sympy library to interpret and substitute values into the user input function,
 #in a future excercise sympy will be replaced by a custum parser
 def legendre():
     x, y = symbols("x y")
@@ -18,7 +18,7 @@ def legendre():
             break
         except:
             print('Function syntax error')
-            pass
+            pass #currently certain inputs causes sympy to continuously print out the error message (ie: inputting cos x instead of cos (x)), a solution is needed to make it ask for user input again
     while True: 
         try:
             a=float(input("What is the lower bound of the domain?\n"))
@@ -44,8 +44,8 @@ def legendre():
         except ValueError:
             print('The number of nodes must be an integer!')
 
-    #matrix comprised of gauss-legendre weight values up to 20 nodes, upcoming updates will attempt to replace these with algorithms to 
-    #calculate the weights and points so the support for nodes will be above 20 at the cost of computation time
+    #matrices comprised of gauss-legendre weights and xi values up to 20 nodes, upcoming updates will attempt to replace these with algorithms to 
+    #calculate the weights and points so the support for nodes will be above 20, at the cost of computation time
     weights=[ 
         [2],
         [1,1],
@@ -68,7 +68,6 @@ def legendre():
         [0.019461788,0.044814227,0.069044543,0.091490022,0.111566646,0.128753963,0.142606702,0.152766042,0.158968843,0.16105445,0.158968843,0.152766042,0.142606702,0.128753963,0.111566646,0.091490022,0.069044543,0.044814227,0.019461788],
         [0.017614007,0.04060143,0.062672048,0.083276742,0.10193012,0.118194532,0.131688638,0.142096109,0.149172986,0.152753387,0.152753387,0.149172986,0.142096109,0.131688638,0.118194532,0.10193012,0.083276742,0.062672048,0.04060143,0.017614007]]
   
-    #matrix of gauss-legendre xi values up to 20 nodes
     domain_pts=[ 
         [0],
         [-0.577350269,0.577350269],
@@ -96,8 +95,7 @@ def legendre():
     estimate = 0
     for i in range(nodes):
         x_sub=float((a+b)/2)+float(du)*float(domain_pts[nodes-1][i])
-        estimate += float(du)*float(weights[nodes-1][i]*func_parsed.subs(x,x_sub)) #needs to be fixed
-    #tests
+        estimate += float(du)*float(weights[nodes-1][i]*func_parsed.subs(x,x_sub)) 
 
     print('The function is:',func,'\nwithin bounds:',a,'and',b,'\nthe number of nodes used is',nodes)
     print('The nodes are at points x=',domain_pts[nodes-1],'\nwith weights:',weights[nodes-1])
