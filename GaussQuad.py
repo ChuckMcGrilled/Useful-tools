@@ -19,7 +19,7 @@ def legendre():
             break
         except:
             print('Function syntax error')
-            continue #currently certain inputs causes sympy to continuously print out the error message (ie: inputting cos x instead of cos (x)), a solution is needed to make it ask for user input again
+            continue
     while True: 
         try:
             a=float(input("What is the lower bound of the domain?\n"))
