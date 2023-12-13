@@ -9,7 +9,7 @@ this is a script to estimate single variable, definite integrals for polynomial 
 from sympy import * 
 from sympy.parsing.sympy_parser import parse_expr
 #import Parser as ps - the program currently relies on the sympy library to interpret and substitute values into the user input function,
-#in a future excercise sympy will be replaced by a custum parser
+#in a future exercise sympy will be replaced by a custom parser
 def legendre():
     x = symbols("x")
     while True:
@@ -45,7 +45,7 @@ def legendre():
         except ValueError:
             print('The number of nodes must be an integer!')
 
-    #matrices comprised of gauss-legendre weights and xi values up to 20 nodes, upcoming updates will attempt to replace these with algorithms to 
+    #matrices comprised of gauss-legendre weights and xi values up to 20 nodes, upcoming updates will attempt to replace these with an algorithm to 
     #calculate the weights and points so the support for nodes will be above 20, at the cost of computation time
     weights=[ 
         [2],
@@ -91,7 +91,7 @@ def legendre():
         [-0.992406844,-0.960208152,-0.903155904,-0.822714657,-0.720966177,-0.600545305,-0.464570741,-0.3165641,-0.160358646,0,0.160358646,0.3165641,0.464570741,0.600545305,0.720966177,0.822714657,0.903155904,0.960208152,0.992406844],
         [-0.993128599,-0.963971927,-0.912234428,-0.839116972,-0.746331906,-0.636053681,-0.510867002,-0.373706089,-0.227785851,-0.076526521,0.076526521,0.227785851,0.373706089,0.510867002,0.636053681,0.746331906,0.839116972,0.912234428,0.963971927,0.993128599]]
  
-    #Changing the domain to 1 and -1 to match the Gauss-Legendre boundary
+    #Mapping the domain to 1 and -1 to match the Gauss-Legendre boundary
     du=(b-a)/2
     estimate = 0
     for i in range(nodes):
